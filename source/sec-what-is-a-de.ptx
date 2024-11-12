@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-what-is-a-de" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>What is a differential equation</title>
+
+  <introduction> 
+    <p>A <em>differential equation</em> is an equation involving derivatives. </p>
+  </introduction>
+
+  <subsection xml:id="subsec-examples1">
+    <title>Examples</title>
+    <p>
+      <me>\frac{dy}{dx}=2x^2 + 3y</me>
+      <me>\frac{d^2y}{dx^2} + 2x\frac{dy}{dx} + \sin(x)y = e^x + \tan(x)</me>
+      <me>\sin\left(\frac{dy}{dx}\right) + y^2 = x</me>
+    </p>
+    <p>In the first example, <m>y</m> is to be a function of <m>x</m> whose derivative is 
+      <m>2x^2</m> plus 3 times the original function <m>y</m>. Note that we write <m>y</m> 
+      instead of <m>y(x)</m>. We will usually not distinguish between functions and variables 
+      in our notation. It will actually make things easier in many problems to just think of 
+      functions as variables and treat them accordingly. We will use both the notations
+      <m>\frac{dy}{dx}</m> and <m>y'(x)</m> to express the derivative of <m>y</m> with 
+      respect to <m>x</m>, though we will often abbreviate <m>y'(x)</m> as just <m>y'</m>, 
+      just as we write <m>y</m> instead of <m>y(x)</m>. The <em>order</em> or a 
+      differential equation is the highest order of derivative that occurs in the equation.
+      The first and third examples are first order while the second example is second order.
+      In this first chapter, we will consider first order equations. Selected equations of 
+      higher order will be considered in subsequent chapters.
+    </p>
+  </subsection>
+
+  <subsection xml:id="interpretation">
+    <title>Interpretation of a Differential Equation</title>
+    <p> Consider the first order equation <m>y' + y = x</m> We can interpret this both
+      algebraically and geometrically. Algebraically, it means we are looking for a function,
+      <m>y(x)</m>, for which the sum of its derivative and itself is equal to <m>x</m>.
+      To give the geometric interpretation, it is helpful to write the equation in the 
+      equivalent form, <m>y' = x - y</m>. Recall that the derivative is the slope of the
+      tangent line to a curve. So we are looking for a curve whose slope at the point
+      <m>(x,y)</m> is <m>x-y</m>. It is easiest to understandd what this geometri condition
+      means using a type of graph called a <em>slope field</em>. We think of a small arrow 
+      at each point <m>(x,y)</m> with slope <m>x-y</m>. Of course, to actually draw the 
+      figure we will only use finitely many arrows. 
+    </p>
+
+    <p>A slope field is similar to a vector field, which you probably studied in 
+        Calculus 3, except that in a vector field we plot vectors, which have both a length
+        and a direction, while in a slope field we are just concerned with slope, that is
+        direction, and not length
+    </p>
+
+  </subsection>
+
+        
+</section>

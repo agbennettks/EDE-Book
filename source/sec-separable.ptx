@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-separable" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separable Equations</title>
+    <subsection>
+        <title>Discussion</title>
+        <introduction>
+            <p>
+                A first order differential equation is <em>separable</em> if the two variables 
+                can be separated, that is all the <m>x</m>'s on one side of the equation and 
+                all the <m>y</m>'s on the other side of the equation. We then solve the problem 
+                by integrating both sides of the equation. (This is our first case where it will
+                be convenient to forget that <m>y</m> is a function and treat it as a variable.
+            </p>
+        </introduction>
+        <p>
+            Consider the following example.
+            <me>\frac{dy}{dx}=xy^2+x</me>.
+            We separate the variables by factoring the right hand side and then dividing 
+            through by <m>y^2+1</m> and multiplying by <m>dx</m> to get 
+            <me>\frac{dy}{y^2+1}=x\,dx</me>.
+            We then integrate both sides to get an implicit solution
+            <me>\arctan(y)=\displaystyle{\frac{x^2}{2}}+C</me>. 
+            Finally we solve for <m>y</m> to get
+            <me>y(x)=\tan(\frac{x^2}{2}+C)</me>. 
+            You can check that this is a solution to the differential equation.
+        </p>
+        <p>
+            This process should be a little disturbing. <m>\frac{dy}{dx}</m> is a notation
+             for the derivative of <m>y</m> with respect to <m>x</m> but the terms 
+             <m>dy</m> and <m>dx</m> are just parts of the notation and have no 
+             independent meaning, right? Yet we just manipulated them like any other 
+             algebraic quantity. <m>dy</m> and <m>dx</m> are called
+             <em>differentials</em>. We will often find it convenient to manipulate 
+             differentials rather than whole derivatives; this is why the subject is 
+             called differential equations rather than derivative equations. 
+             Working out how to think of differentials was important in the historical 
+             development of Calculus. The fact that the "obvious" manipulations can be 
+             proven tp produce correct answers is a large part of the reason why 
+             the <m>\frac{dy}{dx}</m> notation was adopted.
+        </p>
+        <p>
+            Another point is that we included the constant of integration <m>C</m> for the
+            <m>x</m> integral but not for the <m>y</m> integral. We did that because if we 
+            included both constants of integration, the next step would have been to subtract 
+            the <m>y</m>-constant of integration from both sides of the equation and we would 
+            have had the same expression, except with <m>x</m>-constant minus <m>y</m>-constant 
+            instead of <m>C</m>. But the difference of two arbitrary constants is just another 
+            arbitrary constant so why bother.
+        </p>
+        <p>
+            Finally, there is a common algebraic error waiting to mug unwary students in 
+            these equations. Consider the following example.
+            <me>\frac{dy}{dx}=y^2-1</me>
+            We solve this in the same manner as earlier by dividing through by <m>y^2-1</m> 
+            and multiplying by <m>dx</m> to get the separated equation
+            <me>\frac{dy}{y^2-1}=dx</me>.
+            We then integrate both sides to get the implicit solution 
+            <me>\frac12\ln\left\lvert\frac{y-1}{y+1}\right\rvert=x+C</me>. 
+            We solve this for the general solution. First we multiply by 2 and 
+            exponentiate both sides to get
+            <me>\left\lvert\frac{y-1}{y+1}\right\rvert=e^{2C}e^{2x}</me>.
+            We then remove the <m>\lvert\,\rvert</m> signs by taking <m>\pm</m> the right-hand 
+            side and solve for <m>y</m> to get the explicit solution
+            <me>y(x)=\frac{1+ke^{2x}}{1-ke^{2x}}</me>,
+            (where <m>k=\pm e^{2C}</m>). This is the general solution; it is a 
+            solution with one arbitrary constant, k, to a first order equation. But it 
+            doesn't give all the solutions! You can quickly check that <m>y = -1</m> 
+            is a solution, but there is no choice of <m>k</m> that gives this 
+            solution. A solution not part of the general solution is called a 
+            <em>singular solution</em>. So where did we lose this solution? In the first step
+            when we divided by <m>y^2-1</m>. If $<m>y = -1</m>, then we divided by 0 which 
+            is always trouble. A general rule of algebra, which students often miss, 
+            is that whenever you divide by an expression involving a variable, 
+            you must check separately to see if the <m>\text{expression}=0</m> is a solution. 
+            You might also note that <m>y=1</m>, corresponding to <m>k=0</m> is also a 
+            solution. Since <m>k=\pm e^C</m>, it should not be the case that <m>k=0</m>. 
+            This is an example of a singular solution for the implicit solution reappearing 
+            in the explicit solution. Basically we lost a
+            solution via careless algebraic manipulations in finding the implicit solution 
+            but we got it back by making careless algebraic manipulations (letting <m>k=0</m>)
+            in finding the explicit solution. This happy accident is not uncommon and I 
+            won't comment on it in the future. You should note that singular solutions are
+            real solutions and are just as natural as the general solution. The 
+            distinction between the singular and the general solution is just an algebraic
+            distinction.
+        </p>
+    </subsection>
+    <subsection>
+        <title>Paradigm</title>
+        <introduction>We are now ready to give the paradigm for solving separable equations.
+        </introduction>
+        <p>Find all the solutions to 
+            <me>\frac{dy}{dx}=xy+\frac yx</me>
+        </p>
+        <p>
+            <em>Step 1</em> Separate the variables:
+            <md>
+                <mrow>\frac{dy}{dx}\amp=(x+1/x)y</mrow>
+                <mrow>\frac{dy}{y}\amp=(x+1/x)\,dx</mrow>
+            </md>
+        </p>
+        <p>
+            <em>Step 2</em> Integrate both sides:
+                <md>
+                    <mrow>\int\frac{dy}{y}\amp=\int x+1/x\,dx \amp \amp</mrow>
+                    <mrow>\ln|y|\amp=\frac{x^2}{2}+\ln|x|+C \amp \amp\text{(Implicit Solution)}</mrow>
+                </md>
+        </p>
+        <p>
+            <em>Step 3</em> Solve for the explicit solution (if possible):
+                <md>
+                    <mrow>|y|\amp=e^C|x|e^{x^2/2} \amp \amp </mrow>
+                    <mrow>y\amp=\pm e^Cxe^{x^2/2}=kxe^{x^2/2} \amp \amp (k=\pm e^C) </mrow>
+                </md>
+        </p>
+        <p>
+            <em>Step 4</em> Check for singular solutions:
+        </p>
+        <p>
+            We divided by <m>y</m> and <m>y=0</m> is clearly a solution. But it is already part of
+            the general solution with <m>k=0</m>, so there are no singular solutions.
+        </p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Examples</title>
+        <introduction>
+            <p>
+                Now that we have the paradigm, we see how we can use it to solve some sample
+                problems.
+            </p>
+        </introduction>
+        <subsubsection>
+            <title>Multiple singular solutions</title>
+            <p>
+                Find all the solutions of
+                <me>\frac{dy}{dx}=\cos(x)\cos(y)+\cos(y)</me>
+            </p>
+            <p>
+                <em>Step 1:</em>
+                <me>\frac{dy}{\cos(y)}=(\cos(x)+1)\,dx</me>
+            </p>
+            <p>
+                <em>Step 2:</em> 
+                <me>\ln|\sec(y)+\tan(y)|=\sin(x)+x+C</me>
+            </p>
+            <p>
+                <em>Step 3:</em> I can't begin to solve this for <m>y</m>, 
+                so I will just leave it with the implicit solution.
+            </p>
+            <p>
+                <em>Step 4:</em> We divided by <m>\cos(y)</m> and <m>\cos(y)=0</m> 
+                when <m>y=(2n+1)\pi/2</m> with
+                <m>n</m> any integer. These are all solutions, as you should
+                check and none of these are examples of the general solution so they are all
+                singular solutions.
+            </p>
+        </subsubsection>
+        <subsubsection>
+            <title>Initial Value Probelm</title>
+            <p>
+                Solve the initial value problem
+                <md>
+                    <mrow>\frac{dy}{dx}\amp=\exp(x-y) \amp y(0)\amp=2 </mrow>
+                </md>
+            </p>
+            <p>
+                First we find the general solution, then we will plug in the initial value
+                to find the value of the constant.
+            </p>
+            <p>
+                <em>Step 1</em> Separate the variables:
+                <me>\exp(y)\,dy = \exp(x)\,dx</me>
+            </p>
+            <p>
+                <em>Step 2</em> Integrate both sides (remember you only need one constant of integration):
+                <md>
+                    <mrow> \int \exp(y)\,dy \amp= \int \exp(x)\,dx </mrow>
+                    <mrow> \exp(y) \amp= \exp(x) + C </mrow>
+                </md>
+            </p>
+            <p>
+                <em>Step 3</em> Solve for the explicit solution (if possible and desired):
+                <me> y = \ln(\exp(x)+C)</me>
+            </p>
+            <p>
+                <em>Step 4</em> Check for singular solutions:
+            </p>
+            <p>
+                Since this is an initial value problem, we don't need all solutions. If we
+                can plug in the initial value and solve for the constant, we'll be done. If
+                that doesn't work for some reason, then we can come back and look for a 
+                singular solution.
+            </p>
+            <p>
+                Now that we have the general solution, we plug in our initial values, <m>x=0</m>
+                and <m>y=2</m> and solve for the arbitrary constant.
+                <md>
+                    <mrow>2 \amp=\ln(\exp(0) + C) </mrow>
+                    <mrow>\exp(2)\amp=1 + C</mrow>
+                    <mrow>\exp(2) - 1 \amp= C</mrow>
+                </md>
+                Plugging this in we get our solution to the initial value problem:
+                <me>y = \ln(\exp(x) + \exp(2) - 1)</me>
+            </p>
+        </subsubsection>
+        <subsubsection>
+            <title>Singular Solution for an Initial Value Problem</title>
+            <p>
+                Solve the initial value problem
+                <md>
+                    <mrow>\frac{dy}{dx}\amp=y^+3y+2 \amp y(0)\amp=-2</mrow>
+                </md>
+            </p>
+            <p>
+                First we find the general solution, then we plug in the initial value to find
+                the constant.
+            </p>
+            <p>
+                <em>Step 1</em> Separate the variables:
+                <me>\frac{dy}{y^2+3y+2} = dx</me>
+            </p>
+            <p>
+                <em>Step 2</em> Integrate both sides (we will need to use partial fractions)
+                <md>
+                    <mrow>\int\frac{dy}{y^2+3y+2} \amp= \int \,dx </mrow>
+                    <mrow>\int \frac{1}{y+1}-\frac{1}{y+2}\,dy \amp= \int \,dx</mrow>
+                    <mrow>\ln\lvert y+1 \rvert - \ln\lvert y+2 \rvert \amp= x + C</mrow>
+                </md>
+            </p>
+            <p>
+                <em>Step 3</em> Solve for the explicit solution:
+                <md>
+                    <mrow> \ln\left\lvert\frac{y+1}{y+2}\right\rvert\amp= x + C \amp \amp</mrow>
+                    <mrow> \frac{y+1}{y+2} \amp= ke^x \amp (k\amp=\pm e^C)</mrow>
+                    <mrow> y = \frac{2ke^x - 1}{1-ke^x}</mrow>
+                </md>
+            </p>
+            <p>
+                Since this is an initial value problem, we don't need all solutions. If we
+                can plug in the initial value and solve for the constant, we'll be done. If
+                that doesn't work for some reason, then we can come back and look for a 
+                singular solution.
+            </p>
+            <p>
+                Plugging in <m>y(0)=-2</m>, we get 
+                <md>
+                    <mrow> \frac{2ke^0 - 1}{1-ke^0}\amp= -2 </mrow>
+                    <mrow> 2k-1 \amp= 2k-2</mrow>
+                    <mrow> -1 = -2 </mrow>
+                </md>
+            </p>
+            <p>
+                So plugging in the initial value led to an impossible equation. We said above
+                we'd come back and look for a singular solution if things didn't work out. That
+                is exactly where we are now.
+            </p>
+            <p>
+                <em>Step 4</em> Check for singular solutions
+            </p>
+            <p>
+                Looking back over our work, we divided by <m>y^2+3y+2</m> in Step 1. That means
+                we need to check what happens when <m>y^2+3y+2=0</m>, which happens when 
+                <m>y=-1</m> or <m>y=-2</m>. Both of these are in fact solutions. If <m>y</m> takes
+                the constant value -2, then our equation becomes
+                <me>\frac{dy}{dx}=0=(-2)^2+3\times(-2)+1</me>. And since <m>y=-2</m> satisfies the 
+                initial condition, our solution is
+                <me>y = -2 </me> 
+            </p>
+        </subsubsection>
+        <subsubsection xml:id="subsubsec-Newtons-law-of-cooling">
+            <title>
+                Newton's Law of Cooling
+            </title>
+            <p>
+                Newton's law of cooling says that the rate of change of the temperature of an
+                object is proportional to the difference in temperature between the object and
+                its environment.  Suppose that Andy prefers hot tea between the temperatures of
+                90<degree/>C and 60<degree/>C. He gets his tea at 90<degree/>C, 
+                but after 5 minutes it has cooled to 80<degree/>C. If the room temperature is 
+                20<degree/>C, how much longer will Andy be able to enjoy his tea?
+            </p>
+            <p>
+                We translate the problem to a differential equation, solve the equation, plug 
+                in the the given values to find the constants, and then use the solution to 
+                answer the question.
+            </p>
+            <p>
+                <em>Step 0</em> Turn the problem statement into a mathematical statement:
+            </p>
+            <p>
+                We let <m>T</m> be temperature in <degree/>C and <m>t</m> be time in minutes. Then
+                Newton's law of cooling says <m>\frac{dT}{dt}=-r(T-20)</m>, since the room temperature
+                is 20<degree/>C. Here <m>r</m> is the constant of proportionality in Newton's law, 
+                and we write <m>-r</m> since the temperature is decreasing.
+                We also have given values <m>T(0)=90</m> and <m>T(5)=80</m>. So to 
+                find the formula for temperature of the tea, we need to solve
+                <md>
+                    <mrow>\frac{dT}{dt}\amp=-r(T-20) \amp T(0)\amp=90 \amp T(5)\amp=80 </mrow>.
+                </md>
+                It may look a bit odd to have two given values for a first-order equation, but 
+                we have two constants we will need to find, both the constant of integration arising
+                from the first-order equation and also the constant of proportionality from Newton's law.
+            </p>
+            <p>
+                <em>Step 1</em> Separate the variables
+                <me>\frac{dT}{T-20}=-r\,dt</me>
+            </p>
+            <p>
+                <em>Step 2</em> Integrate both sides
+                <md>
+                    <mrow> \int\frac{dT}{T-20}\amp=\int -r\,dt </mrow>
+                    <mrow> \ln\lvert T - 20 \rvert \amp= -rt+C</mrow>
+                </md>
+            </p>
+            <p>
+                <em>Step 3</em> Solve for the explicit solution:
+                <me>T = 20+ke^{-rt}</me>
+            </p>
+            <p>
+                Now we plug in our given values to find <m>k</m> and <m>r</m> From <m>T(0)=90</m> 
+                we get <m>90 = 20 + k</m> so <m>k=70</m>. Then we plug in <m>T(5)=80</m> 
+                and solve for <m>r</m>.
+                <md>
+                    <mrow>80 \amp=20 + 70e^{-5r} </mrow>
+                    <mrow>6/7 \amp= e^{-5r}</mrow>
+                    <mrow>\ln(6/7) \amp= -5r</mrow>
+                    <mrow>-\frac{\ln(6/7)}{5} \amp=r</mrow>
+                </md>
+                So <m>r\approx0.03</m>, and our formula for temperature becomes
+                <me>T(t) \approx 20 + 70e^{-0.03t}</me>.
+            </p>
+            <p>
+                Finally, to answer the question posed, we want to know when the temperature of the tea
+                will reach 60<degree/>C.
+                <md>
+                    <mrow>60 \amp\approx 20 + 70e^{-0.03t} </mrow>
+                    <mrow>\ln(4/7)\amp\approx -0.03t</mrow>
+                    <mrow>18\amp\approx t</mrow>
+                </md>
+                Since 5 minutes has already passed, Andy only has about 13 minutes left to enjoy his
+                tea.
+            </p>
+        </subsubsection>
+        <subsubsection xml:id="subsubsec-more-examples">
+            <title>Randomly Generated Examples</title>
+            <p>
+                A randomly generated example is given below. After you enter an answer, 
+                you can click to see a detailed solution and also ask it to generate another example.
+                You can use this to check your understanding, but you can also just enter a trivially
+                wrong answer if you want (I usually use <m>y=x</m>) to quickly get to the detailed
+                solution if that is what you want. So you can generate as many additional 
+                examples as you want.
+            </p>
+            <p>
+                <myopenmath problem="1423046"></myopenmath>
+            </p>
+            
+        </subsubsection>
+
+    </subsection>
+  
+</section>
